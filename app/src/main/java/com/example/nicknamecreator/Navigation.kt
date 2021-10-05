@@ -23,7 +23,7 @@ fun Navigation() {
             MainScreen(navController = navController)
         }
         composable(
-            route = Screen.SecondScreen.withArgs(),
+            route = Screen.SecondScreen.route + "/{name}",
             arguments = listOf(
                 navArgument("name") {
                     type = NavType.StringType
