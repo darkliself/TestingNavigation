@@ -13,7 +13,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
+import androidx.navigation.compose.navArgument
 
 @Composable
 fun Navigation() {
@@ -23,7 +23,7 @@ fun Navigation() {
             MainScreen(navController = navController)
         }
         composable(
-            route = Screen.SecondScreen.route + "/{name}",
+            route = Screen.SecondScreen.route + "?name={name}",
             arguments = listOf(
                 navArgument("name") {
                     type = NavType.StringType
@@ -58,7 +58,7 @@ fun MainScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(8.dp))
         Button(
             onClick = {
-                navController.navigate(Screen.SecondScreen.withArgs(text))
+                    navController.navigate(Screen.SecondScreen.withArgs("?name=$text"))
             },
             modifier = Modifier.align(Alignment.End)
 
